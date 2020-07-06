@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Hole : MonoBehaviour
 {
+    public bool globalWin;
     public UnityEvent onWin;
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,9 @@ public class Hole : MonoBehaviour
     {
         winTriggered = true;
         onWin?.Invoke();
-        GameManager.Instance.Win();
+        if (globalWin)
+        {
+            GameManager.Instance.Win();
+        }
     }
 }
