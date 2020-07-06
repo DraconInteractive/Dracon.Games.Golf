@@ -5,8 +5,13 @@ using UnityEngine;
 public class PhaseLevelEffect : MonoBehaviour
 {
     public GameObject[] outObjects, inObjects;
-
+    public float delay;
     public void Do ()
+    {
+        Invoke("InternalDo", delay);
+    }
+
+    void InternalDo ()
     {
         foreach (var go in outObjects)
         {
